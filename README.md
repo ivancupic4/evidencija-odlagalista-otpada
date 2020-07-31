@@ -5,8 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## NPM
 
 NPM modules that were installed are:
-npm i ol -S
-npm install --save @types/ol
+`npm i ol -S`
+`npm install --save @types/ol`
 
 ## Development server
 
