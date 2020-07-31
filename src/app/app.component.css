@@ -13,17 +13,17 @@ header {
     padding: 20px;
 }
 
-aside {
+app-odlagalista-otpada {
     float: left;
     width: 20%;
-    height: 300px;
-    background-color: rgba(241, 241, 241, 0.973);
+    height: 600px;
 }   
 
-article {
+app-map {
     float: left;
     width: 80%;
-    height: 300px;
+    height: 600px;
+    background-color: rgba(241, 241, 241, 0.973);
 }
 
 footer {

@@ -1,2 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import 'ol/ol.css';
 @import './styles/bootstrap-4.5.0-dist/css/bootstrap.min.css';
+
+.ol-attribution {
+    display: none !important;
+} 
