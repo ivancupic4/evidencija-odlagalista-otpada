@@ -16,13 +16,13 @@ header {
 app-odlagalista-otpada {
     float: left;
     width: 20%;
-    height: 600px;
+    height: 700px;
 }   
 
 app-map {
     float: left;
     width: 80%;
-    height: 600px;
+    height: 700px;
     background-color: rgba(241, 241, 241, 0.973);
 }
 
@@ -32,4 +32,8 @@ footer {
     height: 30px;
     background-color: rgba(224, 224, 224, 0.973);
     text-align: center;
+}
+
+footer > p {
+    margin: auto;
 }
