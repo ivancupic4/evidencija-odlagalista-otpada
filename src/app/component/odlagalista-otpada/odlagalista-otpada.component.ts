@@ -12,4 +12,7 @@ export class OdlagalistaOtpadaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openAddNewModal() {
+    
+  }
 }

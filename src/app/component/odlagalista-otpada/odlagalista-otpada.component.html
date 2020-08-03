@@ -1,1 +1,6 @@
-<p>odlagalista-otpada works!</p>
+<h2>Odlagališta otpada</h2>
+<input type="button" (click)="openAddNewModal()" value="Dodaj novo" class="btn btn-primary">
+
+<div *ngFor="let odlagaliste of ">
+    <app-odlagaliste-display [odlagaliste]="item"></app-odlagaliste-display>
+</div>
