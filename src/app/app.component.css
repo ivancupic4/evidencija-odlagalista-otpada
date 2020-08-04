@@ -17,6 +17,7 @@ app-odlagalista-otpada {
     float: left;
     width: 20%;
     height: 700px;
+    overflow-y: scroll;
 }   
 
 app-map {

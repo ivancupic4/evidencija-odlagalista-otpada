@@ -1,0 +1,16 @@
+p {
+    line-height: 16px;
+}
+
+div {
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px solid rgb(23, 189, 65);
+    border-radius: 5px;
+}
+
+.underlined {
+    text-decoration: underline;
+}

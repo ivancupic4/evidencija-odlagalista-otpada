@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { OdlagalisteOtpadaDTO } from '../../model/OdlagalisteOtpadaDTO';
 
 @Component({
   selector: 'app-odlagaliste-display',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OdlagalisteDisplayComponent implements OnInit {
 
+  @Input() odlagaliste: OdlagalisteOtpadaDTO;
+  @Output() uredi = new EventEmitter();
+  @Output() obrisi = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
+  onUrediClick(id: number) {
+    this.uredi.emit(id);
+  }
+
+  onObrisiClick(id: number) {
+    this.obrisi.emit(id);
+  }
 }

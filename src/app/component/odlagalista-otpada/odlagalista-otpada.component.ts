@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { AppService } from '../../service/app.service';
+import { OdlagalisteOtpadaDTO } from '../../model/OdlagalisteOtpadaDTO';
 
 @Component({
   selector: 'app-odlagalista-otpada',
@@ -7,12 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OdlagalistaOtpadaComponent implements OnInit {
 
-  constructor() { }
+  @Input() odlagalistaOtpadaDTOList: OdlagalisteOtpadaDTO[];
+  @Output() uredi = new EventEmitter();
+  @Output() obrisi = new EventEmitter();
+
+  constructor(private service: AppService) { }
 
   ngOnInit(): void {
+
   }
 
   openAddNewModal() {
-    
+
+  }
+
+  onUrediEvent(id: number) {
+    console.log("Uredi event fired with Id: " + id);
+  }
+
+  onObrisiEvent(id: number) {
+    this.obrisi.emit(id);
   }
 }

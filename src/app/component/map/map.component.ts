@@ -1,37 +1,65 @@
-import { Component, OnInit } from '@angular/core';
-import { fromLonLat } from 'ol/proj.js';
+import { Component, OnInit, Input, OnChanges, ElementRef, ViewChild } from '@angular/core';
+import { fromLonLat, toLonLat } from 'ol/proj.js';
 import { Circle, Fill, Icon, Style, Stroke } from 'ol/style';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
 import { Feature, Map, Overlay, View } from 'ol/index';
 import { OSM, Vector as VectorSource } from 'ol/source';
 import { Point } from 'ol/geom';
-import { MapService } from '../../service/map.service';
-
+import { AppService } from '../../service/app.service';
 import { OdlagalisteOtpadaDTO } from '../../model/OdlagalisteOtpadaDTO';
+import { toStringHDMS } from 'ol/coordinate';
+import Select from 'ol/interaction/Select';
+import {altKeyOnly, click, pointerMove} from 'ol/events/condition';
+import OverlayPositioning from 'ol/OverlayPositioning';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, OnChanges {
 
-  constructor(private service: MapService) { }
-
-  map;
-  vectorSource;
-  vectorLayer;
+  map: Map;
+  vectorSource: VectorSource;
+  vectorLayer: VectorLayer;
   rasterLayer;
 
-  odlagalistaOtpadaDTOList: OdlagalisteOtpadaDTO[];
+  @Input() odlagalistaOtpadaDTOList: OdlagalisteOtpadaDTO[];
+  @ViewChild('#popup') popupElement: ElementRef;
+
+  constructor(private service: AppService) { }
 
   ngOnInit(): void {
     this.initializeMap();
   }
 
+  ngOnChanges(changes: any) {
+    if(!changes['odlagalistaOtpadaDTOList'].isFirstChange()) {
+      this.map.dispose()
+      this.initializeMap();
+    }
+  }
+
   initializeMap() {
 
-    this.odlagalistaOtpadaDTOList = this.service.loadOdlagalistaOtpada();
+    var container = document.getElementById('popup');
+    var content = document.getElementById('popup-content');
+    var closer = document.getElementById('popup-closer');
+
+    var overlay = new Overlay({
+      element: container,
+      autoPan: true,
+      autoPanAnimation: {
+        duration: 250,
+      },
+    });
+
+    closer.onclick = function () {
+      overlay.setPosition(undefined);
+      closer.blur();
+      return false;
+    };
 
     this.vectorSource = new VectorSource({
       features: this.odlagalistaOtpadaDTOList.map(x => x.Lokacija)
@@ -58,7 +86,16 @@ export class MapComponent implements OnInit {
         center: fromLonLat([17.00, 44.50]),
         zoom: 7.3
       }),
+      overlays: [overlay],
     });
-  }
+  
+    this.map.on('singleclick', function (evt) {
+      var coordinate = evt.coordinate;
+      var hdms = toStringHDMS(toLonLat(coordinate));
+    
+      content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
+      overlay.setPosition(coordinate);
+    });
 
+  }
 }
