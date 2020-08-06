@@ -1,5 +1,7 @@
 <h2>Odlagališta otpada</h2>
-<input type="button" (click)="openAddNewModal()" value="Dodaj novo" class="btn btn-success">
+
+<app-modal buttonText="Dodaj novo"></app-modal>
+
 
 <div *ngFor="let odlagaliste of odlagalistaOtpadaDTOList">
     <app-odlagaliste-display 

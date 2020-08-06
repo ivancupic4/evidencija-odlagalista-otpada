@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { OdlagalistaOtpadaComponent } from './component/odlagalista-otpada/odlagalista-otpada.component';
 import { MapComponent } from './component/map/map.component';
 import { OdlagalisteDisplayComponent } from './component/odlagaliste-display/odlagaliste-display.component';
+import { ModalComponent } from './component/modal/modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -13,11 +15,13 @@ import { OdlagalisteDisplayComponent } from './component/odlagaliste-display/odl
     OdlagalistaOtpadaComponent,
     MapComponent,
     OdlagalisteDisplayComponent,
+    ModalComponent,
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
