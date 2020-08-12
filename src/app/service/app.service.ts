@@ -114,7 +114,7 @@ export class AppService {
 
     ];
 
-    return this.odlagalistaOtpadaDTOList;
+    return this.sortByDate(this.odlagalistaOtpadaDTOList);
   }
 
   loadVrsteOtpada () {
@@ -131,7 +131,7 @@ export class AppService {
 
   deleteOdlagalisteOtpada(id: number) {
     this.odlagalistaOtpadaDTOList = this.odlagalistaOtpadaDTOList.filter(x => x.Id != id);
-    return this.odlagalistaOtpadaDTOList;
+    return this.sortByDate(this.odlagalistaOtpadaDTOList);
   }
 
   saveNewOdlagalisteOtpada(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
@@ -145,6 +145,18 @@ export class AppService {
     // provjera da taj je dodani stvarno zadnji, ujedno i da ga ngOnChanges uspije detektirati da se promijenio
     this.odlagalistaOtpadaDTOList = this.odlagalistaOtpadaDTOList.filter(x => x.Id <= odlagalisteOtpadaDTO.Id);
 
-    return this.odlagalistaOtpadaDTOList;
+    return this.sortByDate(this.odlagalistaOtpadaDTOList);
+  }
+
+  sortByDate(odlagalistaOtpadaDTOList: OdlagalisteOtpadaDTO[]) {
+    odlagalistaOtpadaDTOList.sort(function(a, b) {
+      if (a.VrijemeUocavanjaOtpada < b.VrijemeUocavanjaOtpada)
+        return 1;
+      if (a.VrijemeUocavanjaOtpada > b.VrijemeUocavanjaOtpada)
+        return -1;
+      return 0;
+    });
+
+    return odlagalistaOtpadaDTOList;
   }
 }

@@ -20,10 +20,6 @@ export class OdlagalistaOtpadaComponent implements OnInit {
 
   }
 
-  openAddNewModal() {
-
-  }
-
   onUrediEvent(id: number) {
     console.log("Uredi event fired with Id: " + id);
   }

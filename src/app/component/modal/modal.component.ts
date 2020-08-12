@@ -52,6 +52,7 @@ export class ModalComponent implements OnInit {
 
   resetForm() {
     this.odlagalisteOtpadaDTO = new OdlagalisteOtpadaDTO();
+    this.vrijemeUocavanjaOtpada = null;
     this.lokacijaSirina = '';
     this.lokacijaDuzina = '';
   }
