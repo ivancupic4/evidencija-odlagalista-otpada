@@ -9,6 +9,7 @@ NPM modules that were installed are:
 npm i ol -S
 npm install --save @types/ol
 ng add @ng-bootstrap/ng-bootstrap
+npm i jquery
 ```
 
 ## Development server
