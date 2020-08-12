@@ -38,6 +38,7 @@ export class MapComponent implements OnInit, OnChanges {
     if(!changes['odlagalistaOtpadaDTOList'].isFirstChange()) {
       this.map.dispose()
       this.initializeMap();
+      console.log("ngOnChanges map");
     }
   }
 

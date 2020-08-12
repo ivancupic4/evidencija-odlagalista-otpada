@@ -8,6 +8,7 @@ import { MapComponent } from './component/map/map.component';
 import { OdlagalisteDisplayComponent } from './component/odlagaliste-display/odlagaliste-display.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule
   ],

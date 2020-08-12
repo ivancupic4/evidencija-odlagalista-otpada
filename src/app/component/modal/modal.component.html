@@ -11,33 +11,37 @@
 
         <label>Opis:</label>
         <div class="input-group">
-          <input class="form-control" ngbDatepicker>
+          <input class="form-control" name="opis" [(ngModel)]="odlagalisteOtpadaDTO.Opis">
         </div>
         
         <label>Adresa:</label>
         <div class="input-group">
-          <input class="form-control" ngbDatepicker>
+          <input class="form-control" name="adresa" [(ngModel)]="odlagalisteOtpadaDTO.Adresa">
         </div>
         
         <label>Lokacija:</label>
         <div class="input-group">
-          <input class="form-control" placeholder="Širina" ngbDatepicker>&nbsp;&nbsp;&nbsp;
-          <input class="form-control" placeholder="Dužina" ngbDatepicker>
+          <input class="form-control" name="lokacijaDuzina" placeholder="Dužina" [(ngModel)]="lokacijaDuzina">
+          &nbsp;&nbsp;&nbsp;
+          <input class="form-control" name="lokacijaSirina" placeholder="Širina" [(ngModel)]="lokacijaSirina">
         </div>
 
         <label>Vrsta otpada:</label>
         <div class="input-group">
-          <input class="form-control" ngbDatepicker>
+          <select class="form-control" name="vrstaOtpada" [(ngModel)]="odlagalisteOtpadaDTO.VrstaOtpadaId">
+            <option *ngFor="let item of vrsteOtpadaList" [value]="item.Id">{{item.Naziv}}</option>
+          </select>
         </div>
-        
+
         <label>Procijenjena količina:</label>
         <div class="input-group">
-          <input class="form-control" ngbDatepicker>
+          <input class="form-control" name="procijenjenaKolicina" [(ngModel)]="odlagalisteOtpadaDTO.ProcijenjenaKolicina">
         </div>
 
         <label for="vrijemeUocavanjaOtpada">Vrijeme uočavanja otpada:</label>
         <div class="input-group">
-          <input id="vrijemeUocavanjaOtpada" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+          <input id="vrijemeUocavanjaOtpada" class="form-control" placeholder="yyyy-mm-dd" name="vrijemeUocavanjaOtpada" 
+                 ngbDatepicker #dp="ngbDatepicker" [(ngModel)]="vrijemeUocavanjaOtpada">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"><img src="../../../assets/images/calendar-icon.png" /></button>
           </div>

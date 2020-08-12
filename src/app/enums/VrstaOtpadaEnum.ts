@@ -1,7 +1,7 @@
 export enum VrstaOtpadaEnum {
-  Staklo = 'Staklo', 
-  Zeljezo = 'Željezo', 
-  Papir = 'Papir', 
-  Plastika = 'Plastika', 
-  Biootpad = 'Bio-otpad'
+  Staklo = 1, 
+  Zeljezo, 
+  Papir, 
+  Plastika, 
+  Biootpad
 }

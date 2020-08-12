@@ -12,6 +12,7 @@ export class OdlagalistaOtpadaComponent implements OnInit {
   @Input() odlagalistaOtpadaDTOList: OdlagalisteOtpadaDTO[];
   @Output() uredi = new EventEmitter();
   @Output() obrisi = new EventEmitter();
+  @Output() dodajNovoOdlagaliste = new EventEmitter();
 
   constructor(private service: AppService) { }
 
@@ -30,4 +31,8 @@ export class OdlagalistaOtpadaComponent implements OnInit {
   onObrisiEvent(id: number) {
     this.obrisi.emit(id);
   }
+
+  onDodajNovoOdlagalisteEvent(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
+    this.dodajNovoOdlagaliste.emit(odlagalisteOtpadaDTO);
+  } 
 }

@@ -1,4 +1,3 @@
-import { VrstaOtpadaEnum } from '../enums/VrstaOtpadaEnum'
 import { Feature } from 'ol';
 
 export class OdlagalisteOtpadaDTO {
@@ -7,7 +6,7 @@ export class OdlagalisteOtpadaDTO {
   Id: number;
   Opis: string;
   Adresa: string;
-  VrstaOtpada: VrstaOtpadaEnum;
+  VrstaOtpadaId: number;
   ProcijenjenaKolicina: number;
   VrijemeUocavanjaOtpada: Date;
   Lokacija: Feature;

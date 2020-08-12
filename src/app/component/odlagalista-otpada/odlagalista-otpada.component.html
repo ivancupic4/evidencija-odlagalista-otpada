@@ -1,6 +1,8 @@
 <h2>Odlagališta otpada</h2>
 
-<app-modal title="Dodaj novo"></app-modal>
+<app-modal 
+    title="Dodaj novo"
+    (dodajNovoOdlagaliste)="onDodajNovoOdlagalisteEvent($event)"></app-modal>
 
 
 <div *ngFor="let odlagaliste of odlagalistaOtpadaDTOList">

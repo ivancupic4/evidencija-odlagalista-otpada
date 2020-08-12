@@ -2,9 +2,9 @@
   <h1>Evidencija odlagališta otpada</h1>
 </header>
 
-<app-odlagalista-otpada 
-  [odlagalistaOtpadaDTOList]="odlagalistaOtpadaDTOList"
-  (obrisi)="obrisiOdlagaliste($event)"></app-odlagalista-otpada>
+<app-odlagalista-otpada  [odlagalistaOtpadaDTOList]="odlagalistaOtpadaDTOList"
+  (obrisi)="obrisiOdlagaliste($event)"
+  (dodajNovoOdlagaliste)="dodajNovoOdlagaliste($event)"></app-odlagalista-otpada>
 
 <app-map [odlagalistaOtpadaDTOList]="odlagalistaOtpadaDTOList"></app-map>
 
