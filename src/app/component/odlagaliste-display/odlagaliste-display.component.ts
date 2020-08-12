@@ -18,8 +18,8 @@ export class OdlagalisteDisplayComponent implements OnInit {
 
   }
 
-  onUrediClick(id: number) {
-    this.uredi.emit(id);
+  onUrediClick(odlagaliste: OdlagalisteOtpadaDTO) {
+    this.uredi.emit(odlagaliste);
   }
 
   onObrisiClick(id: number) {

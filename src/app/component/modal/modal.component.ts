@@ -19,6 +19,7 @@ export class ModalComponent implements OnInit {
   @Input() title;
   @Input() odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO;
   @Output() dodajNovoOdlagaliste = new EventEmitter();
+  @Output() urediOdlagaliste = new EventEmitter();
   lokacijaSirina;
   lokacijaDuzina;
   vrsteOtpadaList;
@@ -41,12 +42,21 @@ export class ModalComponent implements OnInit {
       console.log(this.vrijemeUocavanjaOtpada.year + this.vrijemeUocavanjaOtpada.month + this.vrijemeUocavanjaOtpada.day);
       this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada = new Date(this.vrijemeUocavanjaOtpada.year, this.vrijemeUocavanjaOtpada.month-1, this.vrijemeUocavanjaOtpada.day);
 
-      this.dodajNovoOdlagaliste.emit(this.odlagalisteOtpadaDTO);
+      console.log(this.odlagalisteOtpadaDTO.Id);
 
+      if (this.odlagalisteOtpadaDTO.Id == null) {
+        this.dodajNovoOdlagaliste.emit(this.odlagalisteOtpadaDTO);
+      }
+      else {
+        this.urediOdlagaliste.emit(this.odlagalisteOtpadaDTO);
+      }
+      
       this.resetForm();
       //this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
-      this.resetForm();
+      if (this.odlagalisteOtpadaDTO.Id == null) {
+        this.resetForm();
+      }
     });
   }
 

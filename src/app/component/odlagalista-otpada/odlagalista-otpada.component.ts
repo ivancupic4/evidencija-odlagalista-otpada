@@ -20,8 +20,8 @@ export class OdlagalistaOtpadaComponent implements OnInit {
 
   }
 
-  onUrediEvent(id: number) {
-    console.log("Uredi event fired with Id: " + id);
+  onUrediEvent(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
+    console.log("Uredi event fired with : " + odlagalisteOtpadaDTO);
   }
 
   onObrisiEvent(id: number) {

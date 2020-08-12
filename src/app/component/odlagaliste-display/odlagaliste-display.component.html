@@ -5,7 +5,9 @@
     <p><b>Procijenjena količina:</b> {{ odlagaliste.ProcijenjenaKolicina }}</p>
     <p><b>Vrijeme uočavanja otpada:</b> {{ odlagaliste.VrijemeUocavanjaOtpada | date: 'dd.MM.yyyy'}}</p>
     <!-- <p><b>Lokacija:</b> {{ odlagaliste.Lokacija }}</p> -->
-    
-    <input type="button" class="btn btn-primary" value="Uredi" (click)="onUrediClick(odlagaliste.Id)">
+
+    <app-modal title="Uredi" (urediOdlagaliste)="onUrediClick($event)" [odlagalisteOtpadaDTO]="odlagaliste"></app-modal>
+
+    <!-- <input type="button" class="btn btn-primary" value="Uredi" (click)="onUrediClick(odlagaliste)"> -->
     <input type="button" class="btn btn-danger" value="Obriši" (click)="onObrisiClick(odlagaliste.Id)" style="margin-left: 5px;">
 </div>
