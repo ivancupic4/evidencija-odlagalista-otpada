@@ -135,13 +135,16 @@ export class AppService {
   }
 
   saveNewOdlagalisteOtpada(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
-    //ovo sluši za detektiranje koji broj je zadnji u popisu
+    // ovo služi za detektiranje koji broj je zadnji u popisu
     let lastId = Math.max.apply(Math, this.odlagalistaOtpadaDTOList.map(function(x) { return x.Id; }))
     odlagalisteOtpadaDTO.Id = lastId + 1;
 
+    // dodavanje novog objekta u listu
     this.odlagalistaOtpadaDTOList.push(odlagalisteOtpadaDTO);
-    console.log(this.odlagalistaOtpadaDTOList);
-    
+
+    // provjera da taj je dodani stvarno zadnji, ujedno i da ga ngOnChanges uspije detektirati da se promijenio
+    this.odlagalistaOtpadaDTOList = this.odlagalistaOtpadaDTOList.filter(x => x.Id <= odlagalisteOtpadaDTO.Id);
+
     return this.odlagalistaOtpadaDTOList;
   }
 }
