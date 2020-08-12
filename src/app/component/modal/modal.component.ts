@@ -36,12 +36,10 @@ export class ModalComponent implements OnInit {
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       // stvaranje objekta lokacije, sa upisanim koordinatama
-      //this.odlagalisteOtpadaDTO.Lokacija = new Feature(new Point(fromLonLat([Number(this.lokacijaDuzina), Number(this.lokacijaSirina)])));
+      //this.odlagalisteOtpadaDTO.Lokacija = new Feature(new Point(fromLonLat([this.odlagalisteOtpadaDTO.LokacijaSirina, this.odlagalisteOtpadaDTO.LokacijaDuzina])));
       this.odlagalisteOtpadaDTO.Lokacija = new Feature(new Point(fromLonLat([16.424050, 44.505998])));
       
       this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada = new Date(this.vrijemeUocavanjaOtpada.year, this.vrijemeUocavanjaOtpada.month-1, this.vrijemeUocavanjaOtpada.day);
-
-      console.log(this.odlagalisteOtpadaDTO.Id);
 
       if (this.odlagalisteOtpadaDTO.Id == null) {
         this.dodajNovoOdlagaliste.emit(this.odlagalisteOtpadaDTO);

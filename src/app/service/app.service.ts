@@ -27,7 +27,9 @@ export class AppService {
         VrstaOtpadaId: VrstaOtpadaEnum.Plastika,
         ProcijenjenaKolicina: 20,
         VrijemeUocavanjaOtpada: new Date('2020-08-01'),
-        Lokacija: new Feature(new Point(fromLonLat([16.240984, 45.958788])))
+        Lokacija: new Feature(new Point(fromLonLat([16.240984, 45.958788]))),
+        LokacijaDuzina: 16.240984,
+        LokacijaSirina: 45.958788
       },
       {
         Id: 2,
@@ -36,7 +38,9 @@ export class AppService {
         VrstaOtpadaId: VrstaOtpadaEnum.Staklo,
         ProcijenjenaKolicina: 10,
         VrijemeUocavanjaOtpada: new Date('2020-07-15'),
-        Lokacija: new Feature(new Point(fromLonLat([15.905915, 46.026425])))
+        Lokacija: new Feature(new Point(fromLonLat([15.905915, 46.026425]))),
+        LokacijaDuzina: 15.905915,
+        LokacijaSirina: 46.026425
       },
 
       {
@@ -46,7 +50,9 @@ export class AppService {
         VrstaOtpadaId: VrstaOtpadaEnum.Biootpad,
         ProcijenjenaKolicina: 5,
         VrijemeUocavanjaOtpada: new Date('2020-06-12'),
-        Lokacija: new Feature(new Point(fromLonLat([17.370003, 43.209293])))
+        Lokacija: new Feature(new Point(fromLonLat([17.370003, 43.209293]))),
+        LokacijaDuzina: 17.370003,
+        LokacijaSirina: 43.209293
       },
       {
         Id: 4,
@@ -55,7 +61,9 @@ export class AppService {
         VrstaOtpadaId: VrstaOtpadaEnum.Papir,
         ProcijenjenaKolicina: 10,
         VrijemeUocavanjaOtpada: new Date('2020-06-07'),
-        Lokacija: new Feature(new Point(fromLonLat([18.697355, 45.541094])))
+        Lokacija: new Feature(new Point(fromLonLat([18.697355, 45.541094]))),
+        LokacijaDuzina: 18.697355,
+        LokacijaSirina: 45.541094
       },
       {
         Id: 5,
@@ -64,7 +72,9 @@ export class AppService {
         VrstaOtpadaId: VrstaOtpadaEnum.Zeljezo,
         ProcijenjenaKolicina: 20,
         VrijemeUocavanjaOtpada: new Date('2020-05-23'),
-        Lokacija: new Feature(new Point(fromLonLat([15.462422, 43.935288])))
+        Lokacija: new Feature(new Point(fromLonLat([15.462422, 43.935288]))),
+        LokacijaDuzina: 15.462422,
+        LokacijaSirina: 43.935288
       },
       {
         Id: 6,
@@ -73,7 +83,9 @@ export class AppService {
         VrstaOtpadaId: VrstaOtpadaEnum.Plastika,
         ProcijenjenaKolicina: 5,
         VrijemeUocavanjaOtpada: new Date('2020-04-15'),
-        Lokacija: new Feature(new Point(fromLonLat([15.577904, 45.119592])))
+        Lokacija: new Feature(new Point(fromLonLat([15.577904, 45.119592]))),
+        LokacijaDuzina: 15.577904,
+        LokacijaSirina: 45.119592
       },
       {
         Id: 7,
@@ -82,7 +94,9 @@ export class AppService {
         VrstaOtpadaId: VrstaOtpadaEnum.Plastika,
         ProcijenjenaKolicina: 15,
         VrijemeUocavanjaOtpada: new Date('2020-03-29'),
-        Lokacija: new Feature(new Point(fromLonLat([15.628579, 44.873838])))
+        Lokacija: new Feature(new Point(fromLonLat([15.628579, 44.873838]))),
+        LokacijaDuzina: 15.628579,
+        LokacijaSirina: 44.873838
       },
       {
         Id: 8,
@@ -91,7 +105,9 @@ export class AppService {
         VrstaOtpadaId: VrstaOtpadaEnum.Biootpad,
         ProcijenjenaKolicina: 5,
         VrijemeUocavanjaOtpada: new Date('2020-03-12'),
-        Lokacija: new Feature(new Point(fromLonLat([13.836115, 44.842291])))
+        Lokacija: new Feature(new Point(fromLonLat([13.836115, 44.842291]))),
+        LokacijaDuzina: 13.836115,
+        LokacijaSirina: 44.842291
       },
       {
         Id: 9,
@@ -100,7 +116,9 @@ export class AppService {
         VrstaOtpadaId: VrstaOtpadaEnum.Biootpad,
         ProcijenjenaKolicina: 10,
         VrijemeUocavanjaOtpada: new Date('2020-02-27'),
-        Lokacija: new Feature(new Point(fromLonLat([17.212124, 45.596917])))
+        Lokacija: new Feature(new Point(fromLonLat([17.212124, 45.596917]))),
+        LokacijaDuzina: 17.212124,
+        LokacijaSirina: 45.596917
       },
       {
         Id: 10,
@@ -109,7 +127,9 @@ export class AppService {
         VrstaOtpadaId: VrstaOtpadaEnum.Papir,
         ProcijenjenaKolicina: 5,
         VrijemeUocavanjaOtpada: new Date('2020-02-02'),
-        Lokacija: new Feature(new Point(fromLonLat([16.424050, 43.505998])))
+        Lokacija: new Feature(new Point(fromLonLat([16.424050, 43.505998]))),
+        LokacijaDuzina: 16.424050,
+        LokacijaSirina: 43.505998
       },
 
     ];

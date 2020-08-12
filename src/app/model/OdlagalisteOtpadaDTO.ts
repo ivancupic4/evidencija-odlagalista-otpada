@@ -9,5 +9,7 @@ export class OdlagalisteOtpadaDTO {
   VrstaOtpadaId: number;
   ProcijenjenaKolicina: number;
   VrijemeUocavanjaOtpada: Date;
+  LokacijaSirina: number;
+  LokacijaDuzina: number;
   Lokacija: Feature;
 }
