@@ -7,7 +7,7 @@
 
 <div *ngFor="let odlagaliste of odlagalistaOtpadaDTOList">
     <app-odlagaliste-display 
-        [odlagaliste]="odlagaliste"
+        [odlagalisteOtpadaDTO]="odlagaliste"
         (uredi)="onUrediEvent($event)"
         (obrisi)="onObrisiEvent($event)"></app-odlagaliste-display>
 </div>

@@ -8,7 +8,7 @@ import { OdlagalisteOtpadaDTO } from '../../model/OdlagalisteOtpadaDTO';
 })
 export class OdlagalisteDisplayComponent implements OnInit {
 
-  @Input() odlagaliste: OdlagalisteOtpadaDTO;
+  @Input() odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO;
   @Output() uredi = new EventEmitter();
   @Output() obrisi = new EventEmitter();
 
@@ -18,8 +18,8 @@ export class OdlagalisteDisplayComponent implements OnInit {
 
   }
 
-  onUrediClick(odlagaliste: OdlagalisteOtpadaDTO) {
-    this.uredi.emit(odlagaliste);
+  onUrediClick(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
+    this.uredi.emit(odlagalisteOtpadaDTO);
   }
 
   onObrisiClick(id: number) {

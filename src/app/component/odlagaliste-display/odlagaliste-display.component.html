@@ -1,13 +1,13 @@
 <div>
-    <p class="underlined">{{ odlagaliste.Opis }}</p>
-    <p><b>Adresa:</b> {{ odlagaliste.Adresa }}</p>
-    <p><b>VrstaOtpada:</b> {{ odlagaliste.VrstaOtpadaId }}</p>
-    <p><b>Procijenjena količina:</b> {{ odlagaliste.ProcijenjenaKolicina }}</p>
-    <p><b>Vrijeme uočavanja otpada:</b> {{ odlagaliste.VrijemeUocavanjaOtpada | date: 'dd.MM.yyyy'}}</p>
-    <!-- <p><b>Lokacija:</b> {{ odlagaliste.Lokacija }}</p> -->
+    <p class="underlined">{{ odlagalisteOtpadaDTO.Opis }}</p>
+    <p><b>Adresa:</b> {{ odlagalisteOtpadaDTO.Adresa }}</p>
+    <p><b>VrstaOtpada:</b> {{ odlagalisteOtpadaDTO.VrstaOtpadaId }}</p>
+    <p><b>Procijenjena količina:</b> {{ odlagalisteOtpadaDTO.ProcijenjenaKolicina }}</p>
+    <p><b>Vrijeme uočavanja otpada:</b> {{ odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada | date: 'dd.MM.yyyy'}}</p>
+    <!-- <p><b>Lokacija:</b> {{ odlagalisteOtpadaDTO.Lokacija }}</p> -->
 
-    <app-modal title="Uredi" (urediOdlagaliste)="onUrediClick($event)" [odlagalisteOtpadaDTO]="odlagaliste"></app-modal>
+    <app-modal title="Uredi" (urediOdlagaliste)="onUrediClick($event)" [odlagalisteOtpadaDTO]="odlagalisteOtpadaDTO"></app-modal>
 
-    <!-- <input type="button" class="btn btn-primary" value="Uredi" (click)="onUrediClick(odlagaliste)"> -->
-    <input type="button" class="btn btn-danger" value="Obriši" (click)="onObrisiClick(odlagaliste.Id)" style="margin-left: 5px;">
+    <!-- <input type="button" class="btn btn-primary" value="Uredi" (click)="onUrediClick(odlagalisteOtpadaDTO)"> -->
+    <input type="button" class="btn btn-danger" value="Obriši" (click)="onObrisiClick(odlagalisteOtpadaDTO.Id)" style="margin-left: 5px;">
 </div>
