@@ -11,7 +11,7 @@ import { toStringHDMS } from 'ol/coordinate';
 import Select from 'ol/interaction/Select';
 import {altKeyOnly, click, pointerMove} from 'ol/events/condition';
 import OverlayPositioning from 'ol/OverlayPositioning';
-import * as $ from 'jquery';
+import {ZoomToExtent, defaults as defaultControls} from 'ol/control';
 
 @Component({
   selector: 'app-map',
@@ -78,6 +78,15 @@ export class MapComponent implements OnInit, OnChanges {
     });
 
     this.map = new Map({
+      controls: defaultControls().extend([
+        new ZoomToExtent({
+          extent: [
+            1753079,
+            5745220,
+            1813079,
+            5755220 ],
+        }) 
+      ]),
       target: 'map',
       layers: [
         new TileLayer({source: new OSM()}),
@@ -89,7 +98,7 @@ export class MapComponent implements OnInit, OnChanges {
       }),
       //overlays: [overlay],
     });
-  
+
     // this.map.on('singleclick', function (evt) {
     //   var coordinate = evt.coordinate;
     //   var hdms = toStringHDMS(toLonLat(coordinate));
