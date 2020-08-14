@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OdlagalisteOtpadaDTO } from './model/OdlagalisteOtpadaDTO';
 import { AppService } from './service/app.service';
+import { FilterDTO } from './model/FilterDTO';
 
 @Component({
   selector: 'app-root',
@@ -29,5 +30,9 @@ export class AppComponent {
 
   urediOdlagaliste(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
     this.odlagalistaOtpadaDTOList = this.service.editOdlagalisteOtpada(odlagalisteOtpadaDTO);
+  }
+
+  filtrirajOdlagaliste(filterDTO: FilterDTO) {
+    this.odlagalistaOtpadaDTOList = this.service.filterOdlagalisteOtpada(filterDTO);
   }
 }

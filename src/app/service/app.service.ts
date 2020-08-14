@@ -5,6 +5,7 @@ import { VrstaOtpadaEnum } from '../enums/VrstaOtpadaEnum';
 import { Feature } from 'ol/index';
 import { Point } from 'ol/geom';
 import { fromLonLat } from 'ol/proj.js';
+import { FilterDTO } from '../model/FilterDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -175,6 +176,11 @@ export class AppService {
     this.odlagalistaOtpadaDTOList = this.odlagalistaOtpadaDTOList.filter(x => x.Id > 0);
 
     return this.odlagalistaOtpadaDTOList;
+  }
+
+  filterOdlagalisteOtpada(filterDTO: FilterDTO) {
+    return this.odlagalistaOtpadaDTOList.filter(x => (filterDTO.VrijemeUocavanjaOtpadaDatumOd == null || x.VrijemeUocavanjaOtpada > filterDTO.VrijemeUocavanjaOtpadaDatumOd)
+                                                  && (filterDTO.VrijemeUocavanjaOtpadaDatumDo == null || x.VrijemeUocavanjaOtpada < filterDTO.VrijemeUocavanjaOtpadaDatumDo));
   }
 
   sortByDate(odlagalistaOtpadaDTOList: OdlagalisteOtpadaDTO[]) {

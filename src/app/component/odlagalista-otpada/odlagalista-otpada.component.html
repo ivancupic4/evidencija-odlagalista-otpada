@@ -1,7 +1,32 @@
 <h2>Odlagališta otpada</h2>
 
+<div class="input-group">
+    <input id="vrijemeUocavanjaOtpadaDatumOd" class="form-control" placeholder="Datum od" name="vrijemeUocavanjaOtpadaDatumOd" 
+            ngbDatepicker #dpOd="ngbDatepicker" [(ngModel)]="vrijemeUocavanjaOtpadaDatumOd">
+    <div class="input-group-append">
+    <button class="btn btn-outline-secondary calendar" (click)="dpOd.toggle()" type="button"><img src="../../../assets/images/calendar-icon.png" /></button>
+    </div>
+</div>
+
+<br>
+
+<div class="input-group">
+    <input id="vrijemeUocavanjaOtpadaDatumDo" class="form-control" placeholder="Datum do" name="vrijemeUocavanjaOtpadaDatumDo" 
+            ngbDatepicker #dpDo="ngbDatepicker" [(ngModel)]="vrijemeUocavanjaOtpadaDatumDo">
+    <div class="input-group-append">
+    <button class="btn btn-outline-secondary calendar" (click)="dpDo.toggle()" type="button"><img src="../../../assets/images/calendar-icon.png" /></button>
+    </div>
+</div>
+
+<br>
+
+<button type="button" class="btn btn-primary button-filter" (click)="filtriraj()">Filtriraj</button>
+<button type="button" class="btn btn-danger button-filter" (click)="ocisti()">Očisti filter</button>
+
+<br><hr>
+
 <app-modal 
-    title="Dodaj novo"
+    title="Dodaj novo odlagalište"
     (dodajNovoOdlagaliste)="onDodajNovoOdlagalisteEvent($event)"></app-modal>
 
 
