@@ -10,8 +10,8 @@ import { OdlagalisteOtpadaDTO } from '../../model/OdlagalisteOtpadaDTO';
 export class OdlagalistaOtpadaComponent implements OnInit {
 
   @Input() odlagalistaOtpadaDTOList: OdlagalisteOtpadaDTO[];
-  @Output() uredi = new EventEmitter();
-  @Output() obrisi = new EventEmitter();
+  @Output() urediOdlagaliste = new EventEmitter();
+  @Output() obrisiOdlagaliste = new EventEmitter();
   @Output() dodajNovoOdlagaliste = new EventEmitter();
 
   constructor(private service: AppService) { }
@@ -21,11 +21,11 @@ export class OdlagalistaOtpadaComponent implements OnInit {
   }
 
   onUrediEvent(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
-    console.log("Uredi event fired with : " + odlagalisteOtpadaDTO);
+    this.urediOdlagaliste.emit(odlagalisteOtpadaDTO);
   }
 
   onObrisiEvent(id: number) {
-    this.obrisi.emit(id);
+    this.obrisiOdlagaliste.emit(id);
   }
 
   onDodajNovoOdlagalisteEvent(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {

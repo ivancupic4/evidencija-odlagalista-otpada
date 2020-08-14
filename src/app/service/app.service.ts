@@ -168,6 +168,15 @@ export class AppService {
     return this.sortByDate(this.odlagalistaOtpadaDTOList);
   }
 
+  editOdlagalisteOtpada(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
+    this.odlagalistaOtpadaDTOList.filter(x => x.Id == odlagalisteOtpadaDTO.Id)[0] = odlagalisteOtpadaDTO;
+
+    // da ga ngOnChanges uspije detektirati da se promijenio
+    this.odlagalistaOtpadaDTOList = this.odlagalistaOtpadaDTOList.filter(x => x.Id > 0);
+
+    return this.odlagalistaOtpadaDTOList;
+  }
+
   sortByDate(odlagalistaOtpadaDTOList: OdlagalisteOtpadaDTO[]) {
     odlagalistaOtpadaDTOList.sort(function(a, b) {
       if (a.VrijemeUocavanjaOtpada < b.VrijemeUocavanjaOtpada)

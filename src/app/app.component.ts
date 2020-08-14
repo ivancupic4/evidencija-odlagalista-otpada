@@ -21,11 +21,13 @@ export class AppComponent {
 
   obrisiOdlagaliste(id: number) {
     this.odlagalistaOtpadaDTOList = this.service.deleteOdlagalisteOtpada(id);
-    console.log("obrisiOdlagaliste");
   }
 
   dodajNovoOdlagaliste(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
     this.odlagalistaOtpadaDTOList = this.service.saveNewOdlagalisteOtpada(odlagalisteOtpadaDTO);
-    console.log("dodajNovoOdlagaliste");
+  }
+
+  urediOdlagaliste(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
+    this.odlagalistaOtpadaDTOList = this.service.editOdlagalisteOtpada(odlagalisteOtpadaDTO);
   }
 }

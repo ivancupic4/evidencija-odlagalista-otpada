@@ -30,6 +30,7 @@ export class ModalComponent implements OnInit {
       this.resetForm();
     }
     else {
+      // postavljanje objekta za prikaz datuma za vrijeme uočavanja otpada
       this.vrijemeUocavanjaOtpada = {
         year: this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada.getFullYear(),
         month: this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada.getMonth() + 1,
@@ -43,19 +44,17 @@ export class ModalComponent implements OnInit {
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       // stvaranje objekta lokacije, sa upisanim koordinatama
-      //this.odlagalisteOtpadaDTO.Lokacija = new Feature(new Point(fromLonLat([this.odlagalisteOtpadaDTO.LokacijaSirina, this.odlagalisteOtpadaDTO.LokacijaDuzina])));
-      this.odlagalisteOtpadaDTO.Lokacija = new Feature(new Point(fromLonLat([16.424050, 44.505998])));
-      
+      this.odlagalisteOtpadaDTO.Lokacija = new Feature(new Point(fromLonLat([this.odlagalisteOtpadaDTO.LokacijaDuzina, this.odlagalisteOtpadaDTO.LokacijaSirina])));
       this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada = new Date(this.vrijemeUocavanjaOtpada.year, this.vrijemeUocavanjaOtpada.month - 1, this.vrijemeUocavanjaOtpada.day);
 
       if (this.odlagalisteOtpadaDTO.Id == null) {
         this.dodajNovoOdlagaliste.emit(this.odlagalisteOtpadaDTO);
+        this.resetForm();
       }
       else {
         this.urediOdlagaliste.emit(this.odlagalisteOtpadaDTO);
       }
       
-      this.resetForm();
       //this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       if (this.odlagalisteOtpadaDTO.Id == null) {
