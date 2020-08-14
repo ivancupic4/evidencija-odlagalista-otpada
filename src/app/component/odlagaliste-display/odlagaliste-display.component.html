@@ -1,7 +1,7 @@
 <div>
     <p class="underlined">{{ odlagalisteOtpadaDTO.Opis }}</p>
     <p><b>Adresa:</b> {{ odlagalisteOtpadaDTO.Adresa }}</p>
-    <p><b>VrstaOtpada:</b> {{ odlagalisteOtpadaDTO.VrstaOtpadaId }}</p>
+    <p><b>VrstaOtpada:</b> {{ getVrstaOtpadaName(odlagalisteOtpadaDTO.VrstaOtpadaId) }}</p>
     <p><b>Procijenjena količina:</b> {{ odlagalisteOtpadaDTO.ProcijenjenaKolicina }}</p>
     <p><b>Vrijeme uočavanja otpada:</b> {{ odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada | date: 'dd.MM.yyyy'}}</p>
     <!-- <p><b>Lokacija:</b> {{ odlagalisteOtpadaDTO.Lokacija }}</p> -->

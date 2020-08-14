@@ -29,6 +29,13 @@ export class ModalComponent implements OnInit {
     if (this.odlagalisteOtpadaDTO == null) {
       this.resetForm();
     }
+    else {
+      this.vrijemeUocavanjaOtpada = {
+        year: this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada.getFullYear(),
+        month: this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada.getMonth() + 1,
+        day: this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada.getDate()
+      }
+    }
 
     this.vrsteOtpadaList = this.appService.loadVrsteOtpada();
   }
@@ -39,7 +46,7 @@ export class ModalComponent implements OnInit {
       //this.odlagalisteOtpadaDTO.Lokacija = new Feature(new Point(fromLonLat([this.odlagalisteOtpadaDTO.LokacijaSirina, this.odlagalisteOtpadaDTO.LokacijaDuzina])));
       this.odlagalisteOtpadaDTO.Lokacija = new Feature(new Point(fromLonLat([16.424050, 44.505998])));
       
-      this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada = new Date(this.vrijemeUocavanjaOtpada.year, this.vrijemeUocavanjaOtpada.month-1, this.vrijemeUocavanjaOtpada.day);
+      this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada = new Date(this.vrijemeUocavanjaOtpada.year, this.vrijemeUocavanjaOtpada.month - 1, this.vrijemeUocavanjaOtpada.day);
 
       if (this.odlagalisteOtpadaDTO.Id == null) {
         this.dodajNovoOdlagaliste.emit(this.odlagalisteOtpadaDTO);
