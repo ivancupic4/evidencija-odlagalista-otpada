@@ -1,16 +1,11 @@
 import { Component, OnInit, Input, OnChanges, ElementRef, ViewChild } from '@angular/core';
-import { fromLonLat, toLonLat } from 'ol/proj.js';
-import { Circle, Fill, Icon, Style, Stroke } from 'ol/style';
+import { fromLonLat } from 'ol/proj.js';
+import { Circle, Fill, Style, Stroke } from 'ol/style';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
-import { Feature, Map, Overlay, View } from 'ol/index';
+import { Map, View } from 'ol/index';
 import { OSM, Vector as VectorSource } from 'ol/source';
-import { Point } from 'ol/geom';
 import { AppService } from '../../service/app.service';
 import { OdlagalisteOtpadaDTO } from '../../model/OdlagalisteOtpadaDTO';
-import { toStringHDMS } from 'ol/coordinate';
-import Select from 'ol/interaction/Select';
-import {altKeyOnly, click, pointerMove} from 'ol/events/condition';
-import OverlayPositioning from 'ol/OverlayPositioning';
 import {ZoomToExtent, defaults as defaultControls} from 'ol/control';
 
 @Component({
@@ -78,6 +73,6 @@ export class MapComponent implements OnInit, OnChanges {
         zoom: 7.3
       }),
     });
-    
+
   }
 }
