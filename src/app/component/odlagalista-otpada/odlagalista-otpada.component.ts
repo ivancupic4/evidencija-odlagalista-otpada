@@ -39,6 +39,7 @@ export class OdlagalistaOtpadaComponent implements OnInit {
 
   filtriraj() {
     this.filterDTO = new FilterDTO();
+    
     if (this.vrijemeUocavanjaOtpadaDatumOd != null) {
       this.filterDTO.VrijemeUocavanjaOtpadaDatumOd = new Date(this.vrijemeUocavanjaOtpadaDatumOd.year, this.vrijemeUocavanjaOtpadaDatumOd.month - 1, this.vrijemeUocavanjaOtpadaDatumOd.day);
     }

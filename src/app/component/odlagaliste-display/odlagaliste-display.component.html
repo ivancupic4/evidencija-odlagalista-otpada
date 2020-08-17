@@ -4,10 +4,8 @@
     <p><b>VrstaOtpada:</b> {{ getVrstaOtpadaName(odlagalisteOtpadaDTO.VrstaOtpadaId) }}</p>
     <p><b>Procijenjena količina:</b> {{ odlagalisteOtpadaDTO.ProcijenjenaKolicina }}</p>
     <p><b>Vrijeme uočavanja otpada:</b> {{ odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada | date: 'dd.MM.yyyy'}}</p>
-    <!-- <p><b>Lokacija:</b> {{ odlagalisteOtpadaDTO.Lokacija }}</p> -->
 
     <app-modal title="Uredi" (urediOdlagaliste)="onUrediClick($event)" [odlagalisteOtpadaDTO]="odlagalisteOtpadaDTO"></app-modal>
 
-    <!-- <input type="button" class="btn btn-primary" value="Uredi" (click)="onUrediClick(odlagalisteOtpadaDTO)"> -->
     <input type="button" class="btn btn-danger" value="Obriši" (click)="onObrisiClick(odlagalisteOtpadaDTO.Id)" style="margin-left: 5px;">
 </div>

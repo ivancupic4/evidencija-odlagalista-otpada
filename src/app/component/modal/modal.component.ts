@@ -45,6 +45,8 @@ export class ModalComponent implements OnInit {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       // stvaranje objekta lokacije, sa upisanim koordinatama
       this.odlagalisteOtpadaDTO.Lokacija = new Feature(new Point(fromLonLat([this.odlagalisteOtpadaDTO.LokacijaDuzina, this.odlagalisteOtpadaDTO.LokacijaSirina])));
+      
+      // stvaranje Date objekta za vrijeme uočavanje otpada 
       this.odlagalisteOtpadaDTO.VrijemeUocavanjaOtpada = new Date(this.vrijemeUocavanjaOtpada.year, this.vrijemeUocavanjaOtpada.month - 1, this.vrijemeUocavanjaOtpada.day);
 
       if (this.odlagalisteOtpadaDTO.Id == null) {
@@ -54,8 +56,6 @@ export class ModalComponent implements OnInit {
       else {
         this.urediOdlagaliste.emit(this.odlagalisteOtpadaDTO);
       }
-      
-      //this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       if (this.odlagalisteOtpadaDTO.Id == null) {
         this.resetForm();

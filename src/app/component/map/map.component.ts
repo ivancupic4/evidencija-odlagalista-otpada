@@ -44,23 +44,23 @@ export class MapComponent implements OnInit, OnChanges {
 
   initializeMap() {
 
-    // var container = document.getElementById('popup');
-    // var content = document.getElementById('popup-content');
-    // var closer = document.getElementById('popup-closer');
+    var container = document.getElementById('popup');
+    var content = document.getElementById('popup-content');
+    var closer = document.getElementById('popup-closer');
 
-    // var overlay = new Overlay({
-    //   element: container,
-    //   autoPan: true,
-    //   autoPanAnimation: {
-    //     duration: 250,
-    //   },
-    // });
+    var overlay = new Overlay({
+      element: container,
+      autoPan: true,
+      autoPanAnimation: {
+        duration: 250,
+      },
+    });
 
-    // closer.onclick = function () {
-    //   overlay.setPosition(undefined);
-    //   closer.blur();
-    //   return false;
-    // };
+    closer.onclick = function () {
+      overlay.setPosition(undefined);
+      closer.blur();
+      return false;
+    };
 
     this.vectorSource = new VectorSource({
       features: this.odlagalistaOtpadaDTOList.map(x => x.Lokacija)
@@ -96,16 +96,16 @@ export class MapComponent implements OnInit, OnChanges {
         center: fromLonLat([17.00, 44.50]),
         zoom: 7.3
       }),
-      //overlays: [overlay],
+      overlays: [overlay],
     });
 
-    // this.map.on('singleclick', function (evt) {
-    //   var coordinate = evt.coordinate;
-    //   var hdms = toStringHDMS(toLonLat(coordinate));
+    this.map.on('singleclick', function (evt) {
+      var coordinate = evt.coordinate;
+      var hdms = toStringHDMS(toLonLat(coordinate));
     
-    //   content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
-    //   overlay.setPosition(coordinate);
-    // });
+      content.innerHTML = '<p>Odabrane koordinate su:</p><code>' + hdms + '</code>';
+      overlay.setPosition(coordinate);
+    });
 
   }
 }

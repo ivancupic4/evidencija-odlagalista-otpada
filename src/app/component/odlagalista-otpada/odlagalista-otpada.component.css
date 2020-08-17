@@ -13,3 +13,7 @@ input {
 .input-group-append {
     margin-right: 30px;
 }
+
+app-modal {
+    margin-left: 30px;
+}

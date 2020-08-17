@@ -12,11 +12,12 @@ export class OdlagalisteDisplayComponent implements OnInit {
   @Input() odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO;
   @Output() uredi = new EventEmitter();
   @Output() obrisi = new EventEmitter();
+  vrsteOtpadaList;
 
   constructor(private service: AppService) { }
 
   ngOnInit(): void {
-
+    this.vrsteOtpadaList = this.service.loadVrsteOtpada();
   }
 
   onUrediClick(odlagalisteOtpadaDTO: OdlagalisteOtpadaDTO) {
@@ -28,9 +29,7 @@ export class OdlagalisteDisplayComponent implements OnInit {
   }
 
   getVrstaOtpadaName(id: number) {
-    let vrsteOtpadaList = this.service.loadVrsteOtpada();
-    let vrstaOtpada = vrsteOtpadaList.filter(x => x.Id == id)[0];
-
+    let vrstaOtpada = this.vrsteOtpadaList.filter(x => x.Id == id)[0];
     return vrstaOtpada.Naziv;
   }
 }
