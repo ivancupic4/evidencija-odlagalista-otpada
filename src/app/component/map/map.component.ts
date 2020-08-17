@@ -38,29 +38,10 @@ export class MapComponent implements OnInit, OnChanges {
     if(!changes['odlagalistaOtpadaDTOList'].isFirstChange()) {
       this.map.dispose()
       this.initializeMap();
-      console.log("ngOnChanges map");
     }
   }
 
   initializeMap() {
-
-    var container = document.getElementById('popup');
-    var content = document.getElementById('popup-content');
-    var closer = document.getElementById('popup-closer');
-
-    var overlay = new Overlay({
-      element: container,
-      autoPan: true,
-      autoPanAnimation: {
-        duration: 250,
-      },
-    });
-
-    closer.onclick = function () {
-      overlay.setPosition(undefined);
-      closer.blur();
-      return false;
-    };
 
     this.vectorSource = new VectorSource({
       features: this.odlagalistaOtpadaDTOList.map(x => x.Lokacija)
@@ -96,16 +77,7 @@ export class MapComponent implements OnInit, OnChanges {
         center: fromLonLat([17.00, 44.50]),
         zoom: 7.3
       }),
-      overlays: [overlay],
     });
-
-    this.map.on('singleclick', function (evt) {
-      var coordinate = evt.coordinate;
-      var hdms = toStringHDMS(toLonLat(coordinate));
     
-      content.innerHTML = '<p>Odabrane koordinate su:</p><code>' + hdms + '</code>';
-      overlay.setPosition(coordinate);
-    });
-
   }
 }
